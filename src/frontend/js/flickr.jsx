@@ -17,11 +17,12 @@ module.exports = React.createClass({
   searchClicked(_) { flickrSearch(this.state.term).fork( this.props.showError, this.updateResults ) },
 
   render() {
+    const imgs = this.state.results.map(src => <img src={src} key={src} />)
     return (
       <div id="flickr">
         <input onChange={this.termChanged}/>
         <button onClick={this.searchClicked}>Search</button>
-        <div id="results"> {this.state.results} </div>
+        <div id="results"> {imgs} </div>
       </div>
     );
   }
