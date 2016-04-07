@@ -1,4 +1,5 @@
 const React = require('react')
+const { flickrSearch } = require('./model')
 
 module.exports = React.createClass({
   displayName: 'Flikr',
@@ -10,7 +11,7 @@ module.exports = React.createClass({
   termChanged({currentTarget: t}) {this.setState({term: t.value})},
 
   //termChanged :: Event -> ?
-  searchClicked(_) { console.log(this.state.term);},
+  searchClicked(_) { flickrSearch(this.state.term).fork(this.props.showError, (x) => console.log(x)) },
 
   render() {
     return (
