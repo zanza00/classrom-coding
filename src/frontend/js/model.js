@@ -1,6 +1,6 @@
 const Task = require('data.task')
-const {getJSON} = require('jquery')
-const {compose, replace, prop, map} = require('ramda')
+const { getJSON } = require('jquery')
+const { compose, replace, prop, map } = require('ramda')
 
 
 const Http = {
