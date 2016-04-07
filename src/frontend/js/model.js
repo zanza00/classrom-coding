@@ -15,7 +15,10 @@ const baseUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.sear
 //makeUrl :: String -> Url
 const makeUrl = (t) => replace('{TAGS}', t, baseUrl)
 
-//flickrSearch :: String -> Task Error JSON
-const flickrSearch = compose(Http.get, makeUrl)
+// extractUrls :: JSON -> [Url]
+const extractUrls = compose(map(prop('url_s')), prop('photo'), prop('photos'))
+
+//flickrSearch :: String -> Task Error [URL]
+const flickrSearch = compose(map(extractUrls), Http.get, makeUrl)
 
 module.exports = { flickrSearch }
