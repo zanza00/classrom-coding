@@ -10,7 +10,7 @@ const Http = {
 
 const Url = String
 
-const baseUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8425bb55f2c56baebbde2f8c980189c5&tags={TAGS}&extras=url_s&format=json&jsoncallback=?'
+const baseUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=df47baeb4aa85b2fee3fe38170d9cf0e&tags={TAGS}&extras=url_s&format=json&jsoncallback=?'
 
 //makeUrl :: String -> Url
 const makeUrl = (t) => replace('{TAGS}', t, baseUrl)
